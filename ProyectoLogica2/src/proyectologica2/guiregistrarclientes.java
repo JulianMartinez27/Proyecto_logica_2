@@ -39,6 +39,8 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -73,7 +75,12 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         fechanacimiento.setBackground(new java.awt.Color(255, 255, 255));
         fechanacimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         fechanacimiento.setForeground(new java.awt.Color(0, 0, 0));
-        fechanacimiento.setText("DD/MM/AAAA");
+        fechanacimiento.setText("DD/MM");
+        fechanacimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechanacimientoActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -88,7 +95,7 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("DD/MM/AAAA");
+        jLabel5.setText("DD/MM");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -120,7 +127,7 @@ public class guiregistrarclientes extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(233, 233, 233)
                         .addComponent(jLabel1)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,11 +168,11 @@ public class guiregistrarclientes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Documento
-        String ID=id.getText().toString();
+        String ID=id.getText();
         //Nombre
-        String N=nombre.getText().toString();
+        String N=nombre.getText();
         //Fecha de nacimiento
-        String F=fechanacimiento.getText().toString();
+        String F=fechanacimiento.getText();
         //Crear Objeto
         Cliente cliente=new Cliente(ID,N,F);
         //Guardar cliente en el arraylist
@@ -177,6 +184,10 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         nombre.setText(null);
         fechanacimiento.setText("DD/MM/AA");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void fechanacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanacimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fechanacimientoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -4,29 +4,28 @@ import java.util.*;
 public class Compra {
     private String fecha;
     private Cliente cliente;
-    private Producto producto;
+    private ArrayList<Producto>productos;
     private int cantidadtele;
     private int cantidadproye;
     private int total;
-    private int totalpagar;
-    private ArrayList<Producto>productos;
+    private double totalpagar;
 
     public Compra() {
     }
 
-    public Compra(String fecha, Cliente cliente, Producto producto, int cantidadtele, int cantidadproye, int total, int totalpagar) {
+    public Compra(String fecha, Cliente cliente, ArrayList<Producto> productos, int cantidadtele, int cantidadproye, int total, double totalpagar) {
         this.fecha = fecha;
         this.cliente = cliente;
-        this.producto = producto;
+        this.productos = productos;
         this.cantidadtele = cantidadtele;
         this.cantidadproye = cantidadproye;
         this.total = total;
         this.totalpagar = totalpagar;
     }
     
-    public void guardarproductosencompra(){
-        
-    }
+    
+
+    
     
     
 }

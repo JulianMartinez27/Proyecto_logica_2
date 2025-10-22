@@ -52,6 +52,7 @@ public class guiregistrarproducto extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         tecnologiav = new javax.swing.JComboBox<>();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Productos");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

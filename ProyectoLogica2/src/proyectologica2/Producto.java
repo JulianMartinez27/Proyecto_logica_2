@@ -33,5 +33,26 @@ public abstract class Producto {
     public String getCodigo() {
         return codigo;
     }
+    //metodo para saber si el producto es un proyector
+    public boolean isProyector(Producto p){
+        boolean b;
+        if (p instanceof Proyector){
+            b=true;
+        }else{
+            b=false;
+        }
+        return b;
+    }
+    //metodo para saber si el producto es un televisor
+    public boolean isTelevisor(Producto p){
+        boolean b;
+        if (p instanceof Proyector){
+            b=false;
+        }else{
+            b=true;
+        }
+        return b;
+    }
+    
     
 }

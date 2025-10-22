@@ -11,7 +11,7 @@ public class Cliente {
     public Cliente() {
     }
     
-    public Cliente(String ID, String nombre, String fechan) {
+    public Cliente(String ID, String nombre, String fechanaci) {
         this.ID = ID;
         this.nombre = nombre;
         this.fechanaci = fechanaci;
