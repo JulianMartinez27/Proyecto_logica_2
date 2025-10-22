@@ -52,41 +52,30 @@ public class guiregistrarproducto extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         tecnologiav = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registrar Productos");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Registrar Productos");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Codigo");
 
-        codigo.setBackground(new java.awt.Color(255, 255, 255));
         codigo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        codigo.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Referencia");
 
-        referencia.setBackground(new java.awt.Color(255, 255, 255));
         referencia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        referencia.setForeground(new java.awt.Color(0, 0, 0));
         referencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 referenciaActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,9 +83,7 @@ public class guiregistrarproducto extends javax.swing.JFrame {
             }
         });
 
-        marca.setBackground(new java.awt.Color(255, 255, 255));
         marca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        marca.setForeground(new java.awt.Color(0, 0, 0));
         marca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Samsung", "LG", "Kalley" }));
         marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,96 +93,69 @@ public class guiregistrarproducto extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Marca");
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Color");
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Producto");
 
-        producto.setBackground(new java.awt.Color(255, 255, 255));
         producto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        producto.setForeground(new java.awt.Color(0, 0, 0));
         producto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Televisor", "Proyector" }));
 
-        color.setBackground(new java.awt.Color(255, 255, 255));
         color.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        color.setForeground(new java.awt.Color(0, 0, 0));
         color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Blanco", "Gris" }));
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Resolucion");
 
-        resolucion.setBackground(new java.awt.Color(255, 255, 255));
         resolucion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        resolucion.setForeground(new java.awt.Color(0, 0, 0));
         resolucion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HD", "Full HD" }));
 
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Precio");
 
-        precio.setBackground(new java.awt.Color(255, 255, 255));
         precio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        precio.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 204));
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Televisor:");
 
         jLabel11.setBackground(new java.awt.Color(204, 204, 204));
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Proyector:");
 
         jLabel12.setBackground(new java.awt.Color(204, 204, 204));
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tamaño (Pulgadas)");
 
-        tamano.setBackground(new java.awt.Color(255, 255, 255));
         tamano.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tamano.setForeground(new java.awt.Color(0, 0, 0));
         tamano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10-32", "40-49", "50-59", "60-75", "76+" }));
 
         jLabel14.setBackground(new java.awt.Color(204, 204, 204));
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tipo Pantalla");
 
-        tipopantalla.setBackground(new java.awt.Color(255, 255, 255));
         tipopantalla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tipopantalla.setForeground(new java.awt.Color(0, 0, 0));
         tipopantalla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LED", "NanoCell", "OLED", "QLED", "MiniLED", "QNED" }));
 
         jLabel15.setBackground(new java.awt.Color(204, 204, 204));
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Sistema Operativo");
 
-        sistemaoperativo.setBackground(new java.awt.Color(255, 255, 255));
         sistemaoperativo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        sistemaoperativo.setForeground(new java.awt.Color(0, 0, 0));
         sistemaoperativo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Android TV", "Google TV", "Tizen", "Web OS", "Roku TV" }));
 
         jLabel16.setBackground(new java.awt.Color(204, 204, 204));
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Tipo de Uso");
 
-        tipouso.setBackground(new java.awt.Color(255, 255, 255));
         tipouso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tipouso.setForeground(new java.awt.Color(0, 0, 0));
         tipouso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hogar", "Empresarial" }));
         tipouso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,12 +165,9 @@ public class guiregistrarproducto extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(204, 204, 204));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Tecnologia de Visualizacion");
 
-        tecnologiav.setBackground(new java.awt.Color(255, 255, 255));
         tecnologiav.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tecnologiav.setForeground(new java.awt.Color(0, 0, 0));
         tecnologiav.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "LCD", "LED", "DLP" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

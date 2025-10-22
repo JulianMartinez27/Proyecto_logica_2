@@ -39,42 +39,29 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Registrar Clientes");
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Doumento de Identidad");
 
-        id.setBackground(new java.awt.Color(255, 255, 255));
         id.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        id.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nombre");
 
-        nombre.setBackground(new java.awt.Color(255, 255, 255));
         nombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        nombre.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Fecha de Nacimiento");
 
-        fechanacimiento.setBackground(new java.awt.Color(255, 255, 255));
         fechanacimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fechanacimiento.setForeground(new java.awt.Color(0, 0, 0));
         fechanacimiento.setText("DD/MM");
         fechanacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,9 +69,7 @@ public class guiregistrarclientes extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Guardar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
