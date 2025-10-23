@@ -33,6 +33,12 @@ public abstract class Producto {
     public String getCodigo() {
         return codigo;
     }
+
+    public String getMarca() {
+        return marca;
+    }
+    
+    
     //metodo para saber si el producto es un proyector
     public boolean isProyector(Producto p){
         boolean b;

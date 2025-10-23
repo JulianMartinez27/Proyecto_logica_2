@@ -1,5 +1,7 @@
 package proyectologica2;
 
+import javax.swing.JOptionPane;
+
 public class guiprincipal extends javax.swing.JFrame {
     
     
@@ -27,6 +29,13 @@ public class guiprincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -46,21 +55,100 @@ public class guiprincipal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("¡BIENVENIDO!");
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Porcentaje de productos televisor registrados");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("Promedio Productos Marca Samsung");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Acualmente la tienda ofrece y permite registrar dos tipos de productos: ");
+
+        jLabel5.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Funciones:");
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Total de Productos en stock");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("*Televisores");
+
+        jLabel4.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("*Proyectores");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(602, 602, 602)
-                .addComponent(jLabel1)
-                .addContainerGap(615, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(588, 588, 588)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jButton3)
+                            .addComponent(jButton2)
+                            .addComponent(jButton1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))))
+                .addContainerGap(633, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addContainerGap(645, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(42, 42, 42)
+                .addComponent(jButton3)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(295, 295, 295))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -104,7 +192,7 @@ public class guiprincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,6 +213,38 @@ public class guiprincipal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         new guiregistrarcompras().setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        double por;
+        int canttele=controlador.cantidadtele();
+        int cantproduc=controlador.CantidadProductos();
+        if(cantproduc!=0){
+            por=(canttele*100)/cantproduc;
+            JOptionPane.showMessageDialog(rootPane, "El porcentaje de televisores en la tienda es "+por+"%");
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No hay Productos registrados");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(controlador.cantidadsam()!=0){
+            double prom;
+            prom=controlador.PromedioPrecioSamsung();
+            JOptionPane.showMessageDialog(rootPane, "El promedio del precio de productos marca Samsung es: "+prom);
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "No hay productos marca Samsung registrados");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int cantidadtele;
+        int cantidadproyec;
+        int cantidadprodu;
+        cantidadtele=controlador.cantidadtele();
+        cantidadproyec=controlador.cantidadproye();
+        cantidadprodu=controlador.CantidadProductos();
+        JOptionPane.showMessageDialog(rootPane, "Actualmente hay "+cantidadtele+" televisores registrados.\n\nActualmente hay "+cantidadproyec+" proyectores registrados.\n\nPara un total de "+cantidadprodu+" productos registrados");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +272,14 @@ public class guiprincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

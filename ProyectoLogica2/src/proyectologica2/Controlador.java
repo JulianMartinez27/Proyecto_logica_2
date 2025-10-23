@@ -37,14 +37,62 @@ public class Controlador {
     }
     //Metodo para buscar un cliente por su documento, devuelve el objeto cliente
     public Cliente buscarcliente(String id){
+        Cliente c=null;
         for (int i = 0; i < clientes.size(); i++) {
             if(id.equalsIgnoreCase(clientes.get(i).getID()))
-                return clientes.get(i);
+                c=clientes.get(i);
         }
-        return null;
+        return c;
     }
 
+    //Metodo para devolver la cantidad de televisores registrados, devuelve entero
+    public int cantidadtele(){
+        int cant=0;
+        for (int i = 0; i < productos.size(); i++) {
+            if(productos.get(i) instanceof Televisor)
+                cant+=1;
+        }
+        return cant;
+    }
+    
+    //Metodo para devolver la cantidad de proyectores registrados, devuelve entero
+    public int cantidadproye(){
+        int cant=0;
+        for (int i = 0; i < productos.size(); i++) {
+            if(productos.get(i) instanceof Proyector)
+                cant+=1;
+        }
+        return cant;
+    }
+    
+    //Metodo para saber cuantos productos hay en la tienda
+    public int CantidadProductos(){
+        int cant=productos.size();
+        return cant;
+    }
 
-
+    //Metodo para saber cuantos productos marca samsung hay
+    public int cantidadsam(){
+        int cant=0;
+        for (int i = 0; i < productos.size(); i++) {
+            if(productos.get(i).getMarca().equalsIgnoreCase("Samsung"))
+                cant+=1;
+        }
+        return cant;
+    }
+    
+    //Metodo para obtener promedio de precio de productos marca samsung
+    public double PromedioPrecioSamsung(){
+        int cant=cantidadsam();
+        int preciototal=0;
+        double prom;
+        for (int i = 0; i < productos.size(); i++) {
+            if(productos.get(i).getMarca().equalsIgnoreCase("Samsung"))
+                preciototal+=productos.get(i).getPrecio(); 
+        }
+        prom=preciototal/cant;
+        return prom;
+    }
+    
 
 }

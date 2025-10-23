@@ -138,6 +138,11 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Cancelar compra");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -258,7 +263,6 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         boolean desc;
         if(f.equalsIgnoreCase(c.getFechanaci())){
             desc=true;
-            JOptionPane.showMessageDialog(rootPane, desc);
         }else{
             desc=false;
         }
@@ -287,7 +291,7 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         int canttele=0;
         //cantidad de proyectores en el arraylist de esta compra
         int cantpro=0;
-        //Evalucacion de cantidades
+        //Evalucacion de cantidades de televisores y proyectores
         for (int i = 0; i < compra.size(); i++) {
             Producto pro=compra.get(i);
             if(pro.isProyector(pro))
@@ -313,6 +317,22 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         //Limpiar el arraylist de compras
         compra.clear();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Limpiar toda la interfaz
+        fecha.setText("DD/MM");
+        fecha.setEditable(true);
+        id.setText(null);
+        id.setEditable(true);
+        codigo.setText(null);
+        total.setText(null);
+        totalapagar.setText(null);
+        //limpiar variables estaticas
+        t=0;
+        tp=0;
+        //Limpiar el arraylist de compras
+        compra.clear();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
