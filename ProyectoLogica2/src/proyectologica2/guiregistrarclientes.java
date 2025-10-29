@@ -171,7 +171,7 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         //Limpiar Interfaz
         id.setText(null);
         nombre.setText(null);
-        fechanacimiento.setText("DD/MM/AA");
+        fechanacimiento.setText("DD/MM/AA");;      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fechanacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanacimientoActionPerformed

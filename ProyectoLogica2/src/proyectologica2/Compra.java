@@ -4,21 +4,19 @@ import java.util.*;
 public class Compra {
     private String fecha;
     private Cliente cliente;
-    private ArrayList<Producto>productos;
-    private int cantidadtele;
-    private int cantidadproye;
+    private HashMap<>productos;
+    private int cantidad;
     private int total;
     private double totalpagar;
 
     public Compra() {
     }
 
-    public Compra(String fecha, Cliente cliente, ArrayList<Producto> productos, int cantidadtele, int cantidadproye, int total, double totalpagar) {
+    public Compra(String fecha, Cliente cliente, ArrayList<Producto> productos, int cantidad, int total, double totalpagar) {
         this.fecha = fecha;
         this.cliente = cliente;
         this.productos = productos;
-        this.cantidadtele = cantidadtele;
-        this.cantidadproye = cantidadproye;
+        this.cantidad=cantidad;
         this.total = total;
         this.totalpagar = totalpagar;
     }

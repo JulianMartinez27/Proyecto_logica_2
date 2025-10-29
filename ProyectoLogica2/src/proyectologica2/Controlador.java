@@ -2,13 +2,19 @@ package proyectologica2;
 import java.util.*;
 //TENER EN CUENTA, ESTE CONTROLADOR ES EL UNICO QUE DEBE HABER, ES QUIEN VA A MANEJAR TODOS LOS CLIENTES, TODAS LAS COMPRAS, TODOS LOS PRODUCTOS ETC EN SUS ARRAYLIST, CUANDO SE NECESITE LA INFORMACION DE ESOS OBJETOS, LLAMAR A ESTE CONTROLADOR.
 public class Controlador {
+
     
     //ArrayList que contendra todos los productos
-    private ArrayList<Producto> productos=new ArrayList<>();
+    private ArrayList<Producto> productos;
     //ArraylList que Contendra todos los clientes
-    private ArrayList<Cliente> clientes=new ArrayList<>();
+    private ArrayList<Cliente> clientes;
     //ArrayList que contendra todas las compras
-    private ArrayList<Compra> compras=new ArrayList<>();
+    private ArrayList<Compra> compras;
+    public Controlador() {
+        productos=new ArrayList();
+        clientes=new ArrayList();
+        compras=new ArrayList();
+    }
     
     
     
@@ -93,6 +99,15 @@ public class Controlador {
         prom=preciototal/cant;
         return prom;
     }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+    
     
 
 }

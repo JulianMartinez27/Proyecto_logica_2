@@ -4,9 +4,6 @@ import javax.swing.JOptionPane;
 
 public class guiregistrarproducto extends javax.swing.JFrame {
     
-    
-    
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(guiregistrarproducto.class.getName());
     
     public guiregistrarproducto() {
@@ -114,6 +111,11 @@ public class guiregistrarproducto extends javax.swing.JFrame {
 
         producto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         producto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Televisor", "Proyector" }));
+        producto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productoActionPerformed(evt);
+            }
+        });
 
         color.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         color.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Negro", "Blanco", "Gris" }));
@@ -430,6 +432,37 @@ public class guiregistrarproducto extends javax.swing.JFrame {
             tipouso.setSelectedIndex(0);
             tecnologiav.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productoActionPerformed
+        
+        if(producto.getSelectedItem().toString().equalsIgnoreCase("Televisor")){
+            jLabel10.setEnabled(true);
+            jLabel12.setEnabled(true);
+            jLabel14.setEnabled(true);
+            jLabel15.setEnabled(true);
+            tamano.setEnabled(true);
+            tipopantalla.setEnabled(true);
+            sistemaoperativo.setEnabled(true);
+            jLabel11.setEnabled(false);
+            jLabel16.setEnabled(false);
+            jLabel17.setEnabled(false);
+            tipouso.setEnabled(false);
+            tecnologiav.setEnabled(false);
+        }else{
+            jLabel10.setEnabled(false);
+            jLabel12.setEnabled(false);
+            jLabel14.setEnabled(false);
+            jLabel15.setEnabled(false);
+            tamano.setEnabled(false);
+            tipopantalla.setEnabled(false);
+            sistemaoperativo.setEnabled(false);
+            jLabel11.setEnabled(true);
+            jLabel16.setEnabled(true);
+            jLabel17.setEnabled(true);
+            tipouso.setEnabled(true);
+            tecnologiav.setEnabled(true);
+        }
+    }//GEN-LAST:event_productoActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
