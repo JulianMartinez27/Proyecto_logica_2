@@ -2,47 +2,53 @@ package proyectologica2;
 import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.*;
-public class guiregistrarcompras extends javax.swing.JFrame {
+import java.util.ArrayList;
+public class GuiCompra extends javax.swing.JFrame {
     static int t=0;
     static double tp=0;
-    static ArrayList<Producto>compra=new ArrayList<>();
+    static ArrayList<Producto>productoComprado=new ArrayList();
+    static ArrayList<String>unidadesCompradas=new ArrayList();
+    
     DefaultTableModel mtablas=new DefaultTableModel();
 
     /**
      * Creates new form guiregistrarcompras
      */
-    public guiregistrarcompras() {
+    public GuiCompra() {
         initComponents();
         setModelo();
         
         //Ciclo para llenar combobox de clientes
-        for (int i = 0; i < guiprincipal.controlador.getClientes().size(); i++) {
-            id.addItem(guiprincipal.controlador.getClientes().get(i).getID());
+        for (int i = 0; i < GuiPrincipal.controlador.getArregloClientes().size(); i++) {
+            id.addItem(GuiPrincipal.controlador.getArregloClientes().get(i).getID());
         }
         
         //Ciclo para llenar combobox de productos
-        for (int i = 0; i < guiprincipal.controlador.getProductos().size(); i++) {
-            codigo.addItem(guiprincipal.controlador.getProductos().get(i).getCodigo());
+        for (int i = 0; i < GuiPrincipal.controlador.getArregloProductos().size(); i++) {
+            codigo.addItem(GuiPrincipal.controlador.getArregloProductos().get(i).getCodigo());
         }
         
     }
-    
+    //Configurar la Tabla
     private void setModelo(){
         String cabecera[]={"Codigo","Marca","Cantidad","Precio"};
         mtablas.setColumnIdentifiers(cabecera);
-        tabla.setModel(mtablas);
+        mtabla.setModel(mtablas);
     }
     
     private void setDatos(){
         Object datos[]=new Object[mtablas.getColumnCount()];
         mtablas.setRowCount(0);
-        for (int i = 0; i < ; i++) {
-            dat
+        for (int i = 0; i < productoComprado.size(); i++) {
+            datos[0]=productoComprado.get(i).getCodigo();
+            datos[1]=productoComprado.get(i).getMarca();
+            datos[2]=unidadesCompradas.get(i);
+            datos[3]=productoComprado.get(i).getPrecio();
             mtablas.addRow(datos);
         }
-        tabla.setModel(mtablas);
+        mtabla.setModel(mtablas);
     }
-    
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,19 +67,19 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        registrarProducto = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         total = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         totalapagar = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        facturar = new javax.swing.JButton();
+        cancelarCompra = new javax.swing.JButton();
         id = new javax.swing.JComboBox<>();
         codigo = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabla = new javax.swing.JTable();
+        mtabla = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
-        cantidad = new javax.swing.JTextField();
+        unidades = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -90,7 +96,6 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         jLabel2.setText("Fecha");
 
         fecha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fecha.setText("DD/MM");
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -105,19 +110,19 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Producto:");
+        jLabel5.setText("Unidades a comprar:");
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Codigo del producto");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Registrar producto");
-        jButton1.setActionCommand("Registrar ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registrarProducto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registrarProducto.setText("Registrar producto");
+        registrarProducto.setActionCommand("Registrar ");
+        registrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registrarProductoActionPerformed(evt);
             }
         });
 
@@ -144,37 +149,33 @@ public class guiregistrarcompras extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setText("Facturar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        facturar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        facturar.setText("Facturar");
+        facturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                facturarActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setText("Cancelar compra");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        cancelarCompra.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cancelarCompra.setText("Cancelar compra");
+        cancelarCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                cancelarCompraActionPerformed(evt);
             }
         });
 
-        id.setBackground(new java.awt.Color(255, 255, 255));
         id.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        id.setForeground(new java.awt.Color(0, 0, 0));
         id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idActionPerformed(evt);
             }
         });
 
-        codigo.setBackground(new java.awt.Color(255, 255, 255));
         codigo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        codigo.setForeground(new java.awt.Color(0, 0, 0));
 
-        tabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        tabla.setModel(new javax.swing.table.DefaultTableModel(
+        mtabla.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        mtabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -185,14 +186,12 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tabla);
+        jScrollPane1.setViewportView(mtabla);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Cantidad");
 
-        cantidad.setBackground(new java.awt.Color(255, 255, 255));
-        cantidad.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        cantidad.setForeground(new java.awt.Color(0, 0, 0));
+        unidades.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,9 +201,9 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +214,6 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                                     .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                                     .addComponent(totalapagar)))
                             .addComponent(jLabel8)
-                            .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -224,26 +222,27 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel3)))
-                            .addComponent(jButton3))
+                            .addComponent(cancelarCompra))
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(facturar)
                         .addGap(87, 87, 87))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(id, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(55, 55, 55)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(100, Short.MAX_VALUE))))
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(id, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(36, 36, 36)
+                                .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(55, 55, 55)
+                        .addComponent(registrarProducto)
+                        .addContainerGap(378, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,20 +258,24 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
                     .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                    .addComponent(registrarProducto)
+                    .addComponent(jLabel5)
+                    .addComponent(unidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -283,10 +286,10 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(totalapagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(15, 15, 15)
-                        .addComponent(jButton2)
+                        .addComponent(facturar)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(cancelarCompra)
                         .addContainerGap())))
         );
 
@@ -308,79 +311,93 @@ public class guiregistrarcompras extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalapagarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cliente c;
-        String f;
-        //Buscamos el producto con el codigo ingresado, agregamos el precio de ese producto al label de totaL multiplicando por la cantidad de ese mismo producto
-        Producto p;
-        p=guiprincipal.controlador.buscarproducto(codigo.getSelectedItem().toString());
-        t+=p.getPrecio()*Integer.parseInt(cantidad.getText());
-        total.setText(Integer.toString(t));
-        //Buscamos al cliente con ese id
-        c=guiprincipal.controlador.buscarcliente(id.getSelectedItem().toString());
-        //Verificamos si la fecha del dia de la compra es igual al dia de nacimiento, si lo es, se hara el descuento del 20%, sino,no y el total a pagar es el 20% del total
-        f=fecha.getText();
-        boolean desc;
-        if(f.equalsIgnoreCase(c.getFechanaci())){
-            desc=true;
-        }else{
-            desc=false;
+    private void registrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarProductoActionPerformed
+        Cliente c; //Este cliente sera el que buscaremos en base a lo que se escoja en el combobox de clientes
+        Producto p; //Lo mismo con este producto 
+        if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())>0){//Este if hace que el cajero no ingrese mas unidades de las que hallan 
+            facturar.setEnabled(true);
+            if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())<=10){
+            JOptionPane.showMessageDialog(rootPane,"Advertencia: pocas Unidades");
+            }    
+            p=GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString());
+            t+=p.getPrecio()*Integer.parseInt(unidades.getText());
+            total.setText(Integer.toString(t));
+            //Buscamos al cliente con ese id
+            c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());
+            //Verificamos si la fecha del dia de la compra es igual al dia de nacimiento, si lo es, se hara el descuento del 20%, sino,no y el total a pagar es el 20% del total
+            if(fecha.getText().equalsIgnoreCase(c.getFechanacimiento())){
+                tp=t*0.8;
+            }else{
+                tp=t;
+            }
+            //Agregamos el total a pagar ya sea que tiene descuento o no a la interfaz
+            totalapagar.setText(Double.toString(tp));
+            productoComprado.add(GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString()));
+            unidadesCompradas.add(unidades.getText());
+            setDatos();
         }
-        //Se aplica el descuento
-        if(desc)
-            tp=t*0.8;
-        else
-            tp=t;
-        //Agregamos el total a pagar ya sea que tiene descuento o no a la interfaz
-        totalapagar.setText(Double.toString(tp));
-        //agregamos el producto que se registro a un arraylist de la compra donde estaran todos los productos de esa compra
-        compra.add(p);
+        //generar la advertencia de pocas unidades
+        if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())<=0){
+            JOptionPane.showMessageDialog(rootPane,"Unidades insuficientes");
+            facturar.setEnabled(false);
+        }
+        
         //Agregamos a la tabla
-        setDatos();
         //Borramos los campos del codigo del producto
         codigo.setSelectedIndex(0);
-        //No dejamos que cambie la fecha ni el cliente que esta comprando hasta que no facture
-        fecha.setEditable(false);
-        id.setEditable(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_registrarProductoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
         Cliente c;
-        c=guiprincipal.controlador.buscarcliente(id.getSelectedItem().toString());
-        Compra com=new Compra(fecha.getText().toString(),c,compra,Integer.parseInt(cantidad.getText().toString()),t,tp);
+        c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());
+        HashMap<String,Integer>hm=new HashMap<>();
+        for (int i = 0; i < productoComprado.size(); i++) {
+            hm.put( productoComprado.get(i).getCodigo(), Integer.parseInt(unidadesCompradas.get(i)));
+        }
+        Compra com=new Compra(fecha.getText().toString(),c,hm,t,tp);
+        String codigoCambio="";
+        int unidadesRestar;
+        for (int i = 0; i < unidadesCompradas.size(); i++) {
+            codigoCambio=GuiPrincipal.controlador.getArregloProductos().get(i).getCodigo();
+            unidadesRestar=Integer.parseInt(unidadesCompradas.get(i));
+            GuiPrincipal.controlador.actualizarUnidades(codigoCambio,unidadesRestar);
+        }
         //Guardar compra
-        guiprincipal.controlador.guardarcompras(com);
+        GuiPrincipal.controlador.guardarCompras(com);
         //Limpiar toda la interfaz
-        fecha.setText("DD/MM");
+        fecha.setText(null);
         fecha.setEditable(true);
         id.setSelectedIndex(0);
         id.setEditable(true);
         codigo.setSelectedIndex(0);
         total.setText(null);
         totalapagar.setText(null);
+        unidades.setText(null);
         //limpiar variables estaticas
         t=0;
         tp=0;
+        mtablas.setRowCount(0);
         //Limpiar el arraylist de compras
-        compra.clear();
-        setDatos();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        productoComprado.clear();
+        unidadesCompradas.clear();
+        
+    }//GEN-LAST:event_facturarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void cancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCompraActionPerformed
         //Limpiar toda la interfaz
-        fecha.setText("DD/MM");
+        fecha.setText(null);
         fecha.setEditable(true);
         id.setSelectedIndex(0);
         id.setEditable(true);
         codigo.setSelectedIndex(0);
         total.setText(null);
         totalapagar.setText(null);
+        unidades.setText(null);
         //limpiar variables estaticas
         t=0;
         tp=0;
-        //Limpiar el arraylist de compras
-        compra.clear();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_cancelarCompraActionPerformed
 
     private void idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idActionPerformed
         // TODO add your handling code here:
@@ -403,32 +420,31 @@ public class guiregistrarcompras extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarcompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarcompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarcompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarcompras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCompra.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new guiregistrarcompras().setVisible(true);
+                new GuiCompra().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField cantidad;
+    private javax.swing.JButton cancelarCompra;
     private javax.swing.JComboBox<String> codigo;
+    private javax.swing.JButton facturar;
     private javax.swing.JTextField fecha;
     private javax.swing.JComboBox<String> id;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -440,8 +456,10 @@ public class guiregistrarcompras extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabla;
+    private javax.swing.JTable mtabla;
+    private javax.swing.JButton registrarProducto;
     private javax.swing.JTextField total;
     private javax.swing.JTextField totalapagar;
+    private javax.swing.JTextField unidades;
     // End of variables declaration//GEN-END:variables
 }

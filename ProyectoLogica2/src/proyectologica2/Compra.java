@@ -4,22 +4,20 @@ import java.util.*;
 public class Compra {
     private String fecha;
     private Cliente cliente;
-    private HashMap<>productos;
-    private int cantidad;
+    private HashMap<String,Integer>productosComprados; //Este hashmap contiene el codigo del producto y la cantidad que el cliente va a comprar
     private int total;
     private double totalpagar;
 
-    public Compra() {
-    }
-
-    public Compra(String fecha, Cliente cliente, ArrayList<Producto> productos, int cantidad, int total, double totalpagar) {
+    //Constructor
+    public Compra(String fecha, Cliente cliente, HashMap<String, Integer> productosComprados, int total, double totalpagar) {
         this.fecha = fecha;
         this.cliente = cliente;
-        this.productos = productos;
-        this.cantidad=cantidad;
+        this.productosComprados = productosComprados;
         this.total = total;
         this.totalpagar = totalpagar;
     }
+
+
     
     
 

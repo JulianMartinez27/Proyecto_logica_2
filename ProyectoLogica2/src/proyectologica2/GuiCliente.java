@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author salas
  */
-public class guiregistrarclientes extends javax.swing.JFrame {
+public class GuiCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form guiregistrarclientes
      */
-    public guiregistrarclientes() {
+    public GuiCliente() {
         initComponents();
     }
 
@@ -66,7 +66,6 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         jLabel4.setText("Fecha de Nacimiento");
 
         fechanacimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        fechanacimiento.setText("DD/MM");
         fechanacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fechanacimientoActionPerformed(evt);
@@ -165,13 +164,13 @@ public class guiregistrarclientes extends javax.swing.JFrame {
         //Crear Objeto
         Cliente cliente=new Cliente(ID,N,F);
         //Guardar cliente en el arraylist
-        guiprincipal.controlador.guardarclientes(cliente);
+        GuiPrincipal.controlador.guardarClientes(cliente);
         //Mensaje de confirmacion
         JOptionPane.showMessageDialog(rootPane, "El cliente se guardo con exito");
         //Limpiar Interfaz
         id.setText(null);
         nombre.setText(null);
-        fechanacimiento.setText("DD/MM/AA");;      
+        fechanacimiento.setText(null);;      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void fechanacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechanacimientoActionPerformed
@@ -195,20 +194,21 @@ public class guiregistrarclientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(guiregistrarclientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GuiCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new guiregistrarclientes().setVisible(true);
+                new GuiCliente().setVisible(true);
             }
         });
     }

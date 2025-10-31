@@ -9,22 +9,30 @@ public abstract class Producto {
     protected String color;
     protected String resolucion;
     protected int precio;
-    protected int cantidadispo;
+    protected int cantidadDisponible;
     
     //Constructores parametrizado y por defecto
     
     public Producto() {
     }
 
-    public Producto(String codigo, String referencia, String marca, String color, String resolucion, int precio) {
+    public Producto(String codigo, String referencia, String marca, String color, String resolucion, int precio, int cantidadDisponible) {
         this.codigo = codigo;
         this.referencia = referencia;
         this.marca = marca;
         this.color = color;
         this.resolucion = resolucion;
         this.precio = precio;
-        this.cantidadispo = cantidadispo;
+        this.cantidadDisponible = cantidadDisponible;
     }
+
+    @Override
+    public String toString() {
+        return "\nProducto: \n codigo: " + codigo + ", referencia: " + referencia + ", marca: " + marca + ", color: " + color + ", resolucion: " + resolucion + ", precio: " + precio + ", cantidadDisponible: " + cantidadDisponible;
+        
+    }
+    
+    
 
     public int getPrecio() {
         return precio;
@@ -37,28 +45,17 @@ public abstract class Producto {
     public String getMarca() {
         return marca;
     }
-    
-    
-    //metodo para saber si el producto es un proyector
-    public boolean isProyector(Producto p){
-        boolean b;
-        if (p instanceof Proyector){
-            b=true;
-        }else{
-            b=false;
-        }
-        return b;
-    }
-    //metodo para saber si el producto es un televisor
-    public boolean isTelevisor(Producto p){
-        boolean b;
-        if (p instanceof Proyector){
-            b=false;
-        }else{
-            b=true;
-        }
-        return b;
+
+    public int getCantidadDisponible() {
+        return cantidadDisponible;
     }
     
+    
+    public void setCantidadDisponible(int cantidadDisponible) {
+        this.cantidadDisponible = cantidadDisponible;
+    }
+    
+      
+
     
 }

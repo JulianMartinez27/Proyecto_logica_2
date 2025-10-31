@@ -2,18 +2,18 @@ package proyectologica2;
 
 import javax.swing.JOptionPane;
 
-public class guiprincipal extends javax.swing.JFrame {
+public class GuiPrincipal extends javax.swing.JFrame {
     
     
     static Controlador controlador=new Controlador();
     
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(guiprincipal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(GuiPrincipal.class.getName());
 
     /**
      * Creates new form guiprincipal
      */
-    public guiprincipal() {
+    public GuiPrincipal() {
         initComponents();
     }
 
@@ -197,21 +197,21 @@ public class guiprincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        new guiregistrarclientes().setVisible(true);
+        new GuiCliente().setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void registrarproductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarproductoActionPerformed
-        new guiregistrarproducto().setVisible(true);
+        new GuiProducto().setVisible(true);
     }//GEN-LAST:event_registrarproductoActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        new guiregistrarcompras().setVisible(true);
+        new GuiCompra().setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         double por;
-        int canttele=controlador.cantidadtele();
-        int cantproduc=controlador.CantidadProductos();
+        int canttele=controlador.cantidadTelevisores();
+        int cantproduc=controlador.getArregloProductos().size();
         if(cantproduc!=0){
             por=(canttele*100)/cantproduc;
             JOptionPane.showMessageDialog(rootPane, "El porcentaje de televisores en la tienda es "+por+"%");
@@ -221,7 +221,7 @@ public class guiprincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if(controlador.cantidadsam()!=0){
+        if(controlador.cantidadSamsung()!=0){
             double prom;
             prom=controlador.PromedioPrecioSamsung();
             JOptionPane.showMessageDialog(rootPane, "El promedio del precio de productos marca Samsung es: "+prom);
@@ -234,9 +234,9 @@ public class guiprincipal extends javax.swing.JFrame {
         int cantidadtele;
         int cantidadproyec;
         int cantidadprodu;
-        cantidadtele=controlador.cantidadtele();
-        cantidadproyec=controlador.cantidadproye();
-        cantidadprodu=controlador.CantidadProductos();
+        cantidadtele=controlador.cantidadTelevisores();
+        cantidadproyec=controlador.cantidadProyectores();
+        cantidadprodu=controlador.getArregloProductos().size();
         JOptionPane.showMessageDialog(rootPane, "Actualmente hay "+cantidadtele+" televisores registrados.\n\nActualmente hay "+cantidadproyec+" proyectores registrados.\n\nPara un total de "+cantidadprodu+" productos registrados");
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -262,7 +262,7 @@ public class guiprincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new guiprincipal().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new GuiPrincipal().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -4,21 +4,17 @@ package proyectologica2;
 public class Cliente {
     private String ID;
     private String nombre;
-    private String fechanaci;
+    private String fechaNacimiento;
     
-    //Constructores parametrizado y por defecto
-
-    public Cliente() {
-    }
-    
+    //Constructor
     public Cliente(String ID, String nombre, String fechanaci) {
         this.ID = ID;
         this.nombre = nombre;
-        this.fechanaci = fechanaci;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getFechanaci() {
-        return fechanaci;
+    public String getFechanacimiento() {
+        return fechaNacimiento;
     }
 
     public String getID() {
