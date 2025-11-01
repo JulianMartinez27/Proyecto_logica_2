@@ -85,6 +85,42 @@ public class Controlador {
         }
         return cant;
     }
+    public int cantidadKelly(){
+        int cant=0;
+        for (int i = 0; i < arregloProductos.size(); i++) {
+            if (arregloProductos.get(i).getMarca().equalsIgnoreCase("Kelly")) {
+                cant+=1;
+            }
+        }
+        return cant;
+    }
+    public int cantidadLG(){
+        int cant=0;
+        for (int i = 0; i < arregloProductos.size(); i++) {
+            if (arregloProductos.get(i).getMarca().equalsIgnoreCase("LG")) {
+                cant+=1;
+            }
+        }
+        return cant;
+    }
+    public int cantidadHD(){
+        int cant=0;
+        for (int i = 0; i < arregloProductos.size(); i++) {
+            if (arregloProductos.get(i).getResolucion().equalsIgnoreCase("HD")) {
+                cant+=1;
+            }
+        }
+        return cant;
+    }
+    public int cantidadFullHD(){
+        int cant=0;
+        for (int i = 0; i < arregloProductos.size(); i++) {
+            if (arregloProductos.get(i).getResolucion().equalsIgnoreCase("full HD")) {
+                cant+=1;
+            }
+        }
+        return cant;
+    }
     
     //Metodo para obtener promedio de precio de productos marca samsung
     public double PromedioPrecioSamsung(){
@@ -98,18 +134,28 @@ public class Controlador {
         prom=preciototal/cant;
         return prom;
     }
-   
+    //Metodo para obtener las unidades despues de una compra
     public int restaUnidades(int n, String codigo){
         Producto p=buscarProducto(codigo);
         return p.getCantidadDisponible()-n;
     }
-    
+    //metodo para actualizar las unidades de un producto despues de una compra
     public void actualizarUnidades(String codigo, int n){
         Producto p=buscarProducto(codigo);
         p.setCantidadDisponible(restaUnidades(n,codigo));
     }
-    
-    
+    //metodo para buscar el producto mas caro
+    public Producto buscarProductoCaro(){
+        int precio=arregloProductos.get(0).getPrecio();
+        Producto p = null;
+        for (int i = 0; i < arregloProductos.size(); i++) {
+            if (arregloProductos.get(i).getPrecio()>precio){
+                p=arregloProductos.get(i);
+                precio=arregloProductos.get(i).getPrecio();
+            }    
+        }
+        return p;
+    }
     
 
 }

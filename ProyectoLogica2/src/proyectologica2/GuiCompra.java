@@ -314,16 +314,15 @@ public class GuiCompra extends javax.swing.JFrame {
     private void registrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarProductoActionPerformed
         Cliente c; //Este cliente sera el que buscaremos en base a lo que se escoja en el combobox de clientes
         Producto p; //Lo mismo con este producto 
-        if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())>0){//Este if hace que el cajero no ingrese mas unidades de las que hallan 
-            facturar.setEnabled(true);
-            if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())<=10){
+        if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())>0){//La funcion de este if es no permitir que se compren mas unidades de las que ahy en stock 
+            facturar.setEnabled(true);//activa el boton facturar
+            if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())<=10){//Salta una alarma si el producto tiene menos de 10 unidades
             JOptionPane.showMessageDialog(rootPane,"Advertencia: pocas Unidades");
             }    
-            p=GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString());
-            t+=p.getPrecio()*Integer.parseInt(unidades.getText());
-            total.setText(Integer.toString(t));
-            //Buscamos al cliente con ese id
-            c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());
+            p=GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString());//metodo para bsucar el producto seleccionado en el combobox
+            t+=p.getPrecio()*Integer.parseInt(unidades.getText());//suma el valor del producto en base a las unidades comporadas
+            total.setText(Integer.toString(t));//actualiza el cuadrode texto con el valor calculado
+            c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());//Busca al cliente en base a lo escojido en la combobox  
             //Verificamos si la fecha del dia de la compra es igual al dia de nacimiento, si lo es, se hara el descuento del 20%, sino,no y el total a pagar es el 20% del total
             if(fecha.getText().equalsIgnoreCase(c.getFechanacimiento())){
                 tp=t*0.8;
@@ -332,9 +331,9 @@ public class GuiCompra extends javax.swing.JFrame {
             }
             //Agregamos el total a pagar ya sea que tiene descuento o no a la interfaz
             totalapagar.setText(Double.toString(tp));
-            productoComprado.add(GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString()));
-            unidadesCompradas.add(unidades.getText());
-            setDatos();
+            productoComprado.add(GuiPrincipal.controlador.buscarProducto(codigo.getSelectedItem().toString()));//Este arraylist se va a llenar en base a los productos que se compren
+            unidadesCompradas.add(unidades.getText());// este arraylist se llena en base a las unidades que se compren de cada producto
+            setDatos();//actualiza la informacion de la tabla
         }
         //generar la advertencia de pocas unidades
         if (GuiPrincipal.controlador.restaUnidades(Integer.parseInt(unidades.getText()),codigo.getSelectedItem().toString())<=0){
@@ -350,21 +349,21 @@ public class GuiCompra extends javax.swing.JFrame {
 
     private void facturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facturarActionPerformed
         Cliente c;
-        c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());
-        HashMap<String,Integer>hm=new HashMap<>();
+        c=GuiPrincipal.controlador.buscarCliente(id.getSelectedItem().toString());//buscamos el cliente seleccionado 
+        HashMap<String,Integer>hm=new HashMap<>();//Este sera el hashmap que usaremos para crear el objeto compra
         for (int i = 0; i < productoComprado.size(); i++) {
-            hm.put( productoComprado.get(i).getCodigo(), Integer.parseInt(unidadesCompradas.get(i)));
+            hm.put( productoComprado.get(i).getCodigo(), Integer.parseInt(unidadesCompradas.get(i)));//llenamos el hashmap con la informacion del arraylist de productos comprados y el de unidades compradas 
         }
-        Compra com=new Compra(fecha.getText(),c,hm,t,tp);
+        Compra com=new Compra(fecha.getText(),c,hm,t,tp);//Crear el objeto compra
         String codigoCambio="";
         int unidadesRestar;
         for (int i = 0; i < unidadesCompradas.size(); i++) {
             codigoCambio=GuiPrincipal.controlador.getArregloProductos().get(i).getCodigo();
             unidadesRestar=Integer.parseInt(unidadesCompradas.get(i));
-            GuiPrincipal.controlador.actualizarUnidades(codigoCambio,unidadesRestar);
+            GuiPrincipal.controlador.actualizarUnidades(codigoCambio,unidadesRestar);//Este metodo se utiliza para actualizar la cantidad de unidades disponibles, restando las que se acaban de comprar
         }
         //Guardar compra
-        GuiPrincipal.controlador.guardarCompras(com);
+        GuiPrincipal.controlador.guardarCompras(com);//se lleva el objeto compra al arraylist
         //Limpiar toda la interfaz
         fecha.setText(null);
         fecha.setEditable(true);
@@ -377,7 +376,7 @@ public class GuiCompra extends javax.swing.JFrame {
         //limpiar variables estaticas
         t=0;
         tp=0;
-        mtablas.setRowCount(0);
+        mtablas.setRowCount(0);//limpiar la tabla
         //Limpiar el arraylist de compras
         productoComprado.clear();
         unidadesCompradas.clear();

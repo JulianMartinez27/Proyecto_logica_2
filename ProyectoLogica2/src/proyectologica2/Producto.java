@@ -28,7 +28,7 @@ public abstract class Producto {
 
     @Override
     public String toString() {
-        return "\nProducto: \n codigo: " + codigo + ", referencia: " + referencia + ", marca: " + marca + ", color: " + color + ", resolucion: " + resolucion + ", precio: " + precio + ", cantidadDisponible: " + cantidadDisponible;
+        return "Producto: \n codigo: " + codigo + ", referencia: " + referencia + ", marca: " + marca + ", color: " + color + ", resolucion: " + resolucion + ", precio: " + precio + ", cantidadDisponible: " + cantidadDisponible;
         
     }
     
@@ -48,6 +48,10 @@ public abstract class Producto {
 
     public int getCantidadDisponible() {
         return cantidadDisponible;
+    }
+
+    public String getResolucion() {
+        return resolucion;
     }
     
     

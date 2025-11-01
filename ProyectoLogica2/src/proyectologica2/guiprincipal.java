@@ -2,10 +2,9 @@ package proyectologica2;
 
 import javax.swing.JOptionPane;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtils;
-import org.jfree.chart.plot.*;
+import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 public class GuiPrincipal extends javax.swing.JFrame {
     
     
@@ -33,15 +32,18 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        porcentajeTelevisor = new javax.swing.JButton();
+        promedioSamsung = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        totalProductos = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        cantidadMarca = new javax.swing.JButton();
+        cantidadResolucion = new javax.swing.JButton();
+        cantidadTipo = new javax.swing.JButton();
+        mostrarProductoCaro = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -61,19 +63,19 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("¡BIENVENIDO!");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setText("Porcentaje de productos televisor registrados");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        porcentajeTelevisor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        porcentajeTelevisor.setText("Porcentaje de productos televisor registrados");
+        porcentajeTelevisor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                porcentajeTelevisorActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setText("Promedio Productos Marca Samsung");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        promedioSamsung.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        promedioSamsung.setText("Promedio Productos Marca Samsung");
+        promedioSamsung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                promedioSamsungActionPerformed(evt);
             }
         });
 
@@ -87,11 +89,11 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Funciones:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setText("Total de Productos en stock");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        totalProductos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        totalProductos.setText("Total de Productos en stock");
+        totalProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                totalProductosActionPerformed(evt);
             }
         });
 
@@ -105,20 +107,41 @@ public class GuiPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("*Proyectores");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 754, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
-        );
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(242, 242, 242));
         jLabel6.setText("Generar Graficos");
+
+        cantidadMarca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cantidadMarca.setText("Grafico de cantidad por marca\n");
+        cantidadMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadMarcaActionPerformed(evt);
+            }
+        });
+
+        cantidadResolucion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cantidadResolucion.setText("Grafico de cantidad por resolucion\n\n");
+        cantidadResolucion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadResolucionActionPerformed(evt);
+            }
+        });
+
+        cantidadTipo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cantidadTipo.setText("Grafico de cantidad por Tipo");
+        cantidadTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadTipoActionPerformed(evt);
+            }
+        });
+
+        mostrarProductoCaro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        mostrarProductoCaro.setText("Mostrar el producto mas caro");
+        mostrarProductoCaro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarProductoCaroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,25 +155,25 @@ public class GuiPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(411, 411, 411)
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3)
-                                    .addComponent(jButton2)
-                                    .addComponent(jButton1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(totalProductos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(porcentajeTelevisor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(promedioSamsung, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mostrarProductoCaro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(112, 112, 112)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cantidadResolucion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cantidadMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(cantidadTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))))
-                .addGap(80, 80, 80))
+                .addGap(156, 501, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,22 +186,25 @@ public class GuiPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addGap(42, 42, 42)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(promedioSamsung)
+                    .addComponent(cantidadMarca))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(porcentajeTelevisor)
+                    .addComponent(cantidadResolucion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(totalProductos)
+                    .addComponent(cantidadTipo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mostrarProductoCaro)
+                .addGap(404, 404, 404))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
@@ -244,7 +270,7 @@ public class GuiPrincipal extends javax.swing.JFrame {
         new GuiCompra().setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void porcentajeTelevisorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porcentajeTelevisorActionPerformed
         double por;
         int canttele=controlador.cantidadTelevisores();
         int cantproduc=controlador.getArregloProductos().size();
@@ -254,9 +280,9 @@ public class GuiPrincipal extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "No hay Productos registrados");
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_porcentajeTelevisorActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void promedioSamsungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promedioSamsungActionPerformed
         if(controlador.cantidadSamsung()!=0){
             double prom;
             prom=controlador.PromedioPrecioSamsung();
@@ -264,9 +290,9 @@ public class GuiPrincipal extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(rootPane, "No hay productos marca Samsung registrados");
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_promedioSamsungActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void totalProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalProductosActionPerformed
         int cantidadtele;
         int cantidadproyec;
         int cantidadprodu;
@@ -274,7 +300,64 @@ public class GuiPrincipal extends javax.swing.JFrame {
         cantidadproyec=controlador.cantidadProyectores();
         cantidadprodu=controlador.getArregloProductos().size();
         JOptionPane.showMessageDialog(rootPane, "Actualmente hay "+cantidadtele+" televisores registrados.\n\nActualmente hay "+cantidadproyec+" proyectores registrados.\n\nPara un total de "+cantidadprodu+" productos registrados");
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_totalProductosActionPerformed
+
+    private void cantidadMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadMarcaActionPerformed
+        
+        DefaultPieDataset data = new DefaultPieDataset();//Se crea un objeto tipo piedataset, que se encarga de almacenar los datos que se mostarar en el grafico
+        data.setValue("Sumsung",controlador.cantidadSamsung());//Se crean los valores, con una etiqueta tipo string y un metodo que devuelve la cantidad buscada
+        data.setValue("Kelly", controlador.cantidadKelly());
+        data.setValue("LG", controlador.cantidadLG());
+        
+        JFreeChart chart = ChartFactory.createPieChart(
+         "Grafico de cantidad por Marcas", //Titulo del grafico
+         data, //se cargan los datos en el grafico
+         true, //funcion de mostrar leyendas
+         true, //usar tooltips (informacion emergente
+         false);//generar URLs, no se utiliza en aplicaciones locales
+        
+        ChartFrame frame = new ChartFrame("JFreeChart", chart);//Crea una venta tipo ChartFrame, que mostrara el grafico
+        frame.pack();//ajusta el tamaño del grafico a la ventana 
+        frame.setVisible(true);//lo hace visible
+    }//GEN-LAST:event_cantidadMarcaActionPerformed
+
+    private void cantidadResolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadResolucionActionPerformed
+        DefaultPieDataset data= new DefaultPieDataset();
+        data.setValue("HD",controlador.cantidadHD());
+        data.setValue("Full HD",controlador.cantidadFullHD());
+        
+        JFreeChart chart = ChartFactory.createPieChart(
+         "Grafico de cantidad por resolucion", 
+         data, 
+         true, 
+         true, 
+         false);
+        
+        ChartFrame frame = new ChartFrame("JFreeChart", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_cantidadResolucionActionPerformed
+
+    private void cantidadTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadTipoActionPerformed
+        DefaultPieDataset data = new DefaultPieDataset();
+        data.setValue("Televisores",controlador.cantidadTelevisores());
+        data.setValue("proyectores", controlador.cantidadProyectores());
+        
+        JFreeChart chart = ChartFactory.createPieChart(
+         "Grafico de cantidad por Tipo de producto", 
+         data, 
+         true, 
+         true, 
+         false);
+        
+        ChartFrame frame = new ChartFrame("JFreeChart", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_cantidadTipoActionPerformed
+
+    private void mostrarProductoCaroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarProductoCaroActionPerformed
+        JOptionPane.showMessageDialog(rootPane,"El producto mas caro es: \n"+controlador.buscarProductoCaro().toString());
+    }//GEN-LAST:event_mostrarProductoCaroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,9 +385,9 @@ public class GuiPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton cantidadMarca;
+    private javax.swing.JButton cantidadResolucion;
+    private javax.swing.JButton cantidadTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -317,7 +400,10 @@ public class GuiPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton mostrarProductoCaro;
+    private javax.swing.JButton porcentajeTelevisor;
+    private javax.swing.JButton promedioSamsung;
     private javax.swing.JMenuItem registrarproducto;
+    private javax.swing.JButton totalProductos;
     // End of variables declaration//GEN-END:variables
 }

@@ -411,7 +411,7 @@ public class GuiProducto extends javax.swing.JFrame {
                 usof="Empresarial";
             }
             GuiPrincipal.controlador.guardarProducto(new Proyector(usof,visualizacion.getSelectedItem().toString(),codigo.getText(),referencia.getText(), marca.getSelectedItem().toString(),color.getText(),resolucionf,Integer.parseInt(precio.getText()),Integer.parseInt(cantidad.getText())));
-            }
+        }
         //Mensaje de confirmacion
         JOptionPane.showMessageDialog(rootPane,"Se registro el producto");
         //Borramos todo
