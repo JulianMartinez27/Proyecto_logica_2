@@ -355,7 +355,7 @@ public class GuiCompra extends javax.swing.JFrame {
         for (int i = 0; i < productoComprado.size(); i++) {
             hm.put( productoComprado.get(i).getCodigo(), Integer.parseInt(unidadesCompradas.get(i)));
         }
-        Compra com=new Compra(fecha.getText().toString(),c,hm,t,tp);
+        Compra com=new Compra(fecha.getText(),c,hm,t,tp);
         String codigoCambio="";
         int unidadesRestar;
         for (int i = 0; i < unidadesCompradas.size(); i++) {
